@@ -2,16 +2,16 @@
 
 ## What is this?
 
-This is list of the **top 20** Java first[^1] compiler error messages made by students from [Blackbox Mini][]. The Java files in this repo are minimal(-ish) Java files
+This is the list of the **top 20** Java "first"[^1] compiler error messages made by students from [Blackbox Mini][]. The Java files in this repo are minimal(-ish) Java files
 that will produce the corresponding error message in most versions of the OpenJDK `javac` compiler. This list does not include runtime errors (so `NullPointerException`
 is not on this list, sorry!).
 
-Because error message distributions tend to follow a Zipf-Mandelbrot distribution, these top 20 error messages account for 85.72% of all error messages in the entire
-Blackbox Mini dataset.
+Because error message distributions [tend to follow the Zipf-Mandelbrot law][pritchard], these 20 error messages account for 85.72% of all error messages in
+the entire Blackbox Mini dataset.
 
-[^1] A "first" compiler error message is the first error message reported when multiple error messages are reported. This is because the first error message reported is
+[^1]: A "first" compiler error message is the first error message reported when multiple error messages are reported. This is because the first error message reported is
 typically a true indication of a real error that occurred, whereas, any subsequent error message might be a false positive, due to faulty error recovery in the reporting
-the first error message. The top 20 messages on this list
+the first error message.
 
 ## The list
 
@@ -27,7 +27,7 @@ the first error message. The top 20 messages on this list
 |  [8][]  | not a statement                                                                        | Parser        |        144363 |      3.84% |                61.36% |
 |  [9][]  | class, interface, or enum expected                                                     | Parser        |        139908 |      3.72% |                65.08% |
 | [10][]  | ')' expected                                                                           | Parser        |        138658 |      3.69% |                68.77% |
-| [11][]  | incompatible types: <kbd>name</kbd> cannot be converted to <kbd>name</kbd>             | Annotate      |        117082 |      3.11% |                71.88% |
+| [11][]  | incompatible types: <kbd>name</kbd> cannot be converted to <kbd>name</kbd>             | Check         |        117082 |      3.11% |                71.88% |
 | [12][]  | missing return statement                                                               | Flow Analysis |        101325 |      2.69% |                74.57% |
 | [13][]  | constructor <kbd>name</kbd> in class <kbd>name</kbd> cannot be applied to given types; | Check         |         76408 |      2.03% |                76.61% |
 | [14][]  | invalid method declaration; return type required                                       | Parser        |         65922 |      1.75% |                78.36% |
@@ -45,13 +45,13 @@ method, package) would go.
 
 #### Columns
 
- - Raw Frequency: the total count that error messages of that category have appeared in the entire Blackbox Mini dataset
- - Origin: What stage of compilation does this error message originate from? For the purposes of this file, a Java file first passes through the scanner, then the
+ - **Raw Frequency**: the total count that error messages of that category have appeared in the entire Blackbox Mini dataset
+ - **Origin**: What stage of compilation does this error message originate from? For the purposes of this file, a Java file first passes through the scanner, then the
    parser. Once a full internal representation of the code and all its symbols (e.g., variable names) is created, they are the symbols are then resolved (linked to
    a concrete definition). Finally, the code is analyzed in various ways, including checking types and ensuring that all code paths have a valid return statement (Flow
    Analysis).
- - Percentage: the percentage of _all_ (not just the top 20) first error message that this category represents.
- - Cumulative Percentage: the percentage of _all_ error messages this category represents, plus the percentage of all categories before it.
+ - **Percentage**: the percentage of _all_ (not just the top 20) first error message that this category represents.
+ - **Cumulative Percentage**: the percentage of _all_ error messages this category represents, plus the percentage of all categories before it.
 
 ## Credits
 
@@ -65,6 +65,7 @@ This README, and all code in this repository code distributed under the terms of
 See [LICENSE](./LICENSE) for details.
 
 [Blackbox Mini]: https://dl.acm.org/doi/full/10.1145/3551393
+[pritchard]: https://dl.acm.org/doi/abs/10.1145/2846680.2846681
 [regexes]: https://github.com/eddieantonio/project-antipatterns/blob/5738311e4598cc0beb8c89bfb4f9a83e084eb778/java_error_messages/message_patterns.py#L77-L314
 [prior work]: https://gist.github.com/eddieantonio/e200db878745cfbe3ccefd04a62b9b64
 [Byron Hart]: https://github.com/Byron-Hart
